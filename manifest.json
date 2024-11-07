@@ -1,0 +1,23 @@
+{
+  "name": "NZZ Grafik bearbeiten",
+  "description": "Add Button to edit Q and DataWrapper charts",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "256": "images/app.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.nzz.ch/*"],
+      "js": ["src/app.js"],
+      "css": ["src/app.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "images/pen.png"],
+      "matches": [ "https://*.nzz.ch/*" ]
+    }  
+]
+}
