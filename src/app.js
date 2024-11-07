@@ -16,7 +16,6 @@ const addDataWrapper = () => {
   })
 }
 
-
 const qItems = {
   "charts": {
     "selector": ".q-chart-container",
@@ -82,10 +81,11 @@ const addQ = (props) => {
   })
 }
 
-setTimeout(() => {
-
+const init = () => {
+  // Add DataWrapper
   addDataWrapper();
 
+  // Add Q-Items
   addQ(qItems['charts']);
   addQ(qItems['table']);
   addQ(qItems['choropleth']);
@@ -98,6 +98,24 @@ setTimeout(() => {
   addQ(qItems['locatorMap']);
   addQ(qItems['partySlogan']);
   addQ(qItems['pollResult']);
+}
+
+/**
+ * Main function when Extension is loaded
+ */
+setTimeout(() => {
+
+  // Register event when site changes
+  window.navigation.addEventListener("navigate", () => {
+
+    // When location change, remove everything and add it again
+    document.querySelectorAll('.nzz_extension_edit').forEach((el) => el.remove());
+
+    setTimeout(init, 500);
+  })
+
+  // Init Exteion
+  init();
 
 }, 500)
 
