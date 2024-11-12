@@ -1,5 +1,5 @@
 # Chrome-Extension für NZZ-Grafiken
-Diese Chrome-Erweiterung fügt einen Shortlink bei jeder Q und DataWrapper-Grafik ein und öffnet bei Klick den entsprechenden Editor.
+Diese Chrome-Erweiterung fügt Q- und DataWrapper-Grafiken ein Editiersymbol hinzu. Ein Klick darauf öffnet die Grafik im entsprechenden Editor.
 
 ## Installation
 * In Chrome Erweiterungen öffnen: `chrome://extensions/`
