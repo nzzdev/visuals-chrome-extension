@@ -5,7 +5,7 @@
     cursor: pointer;
     width: 20px;
     height: 20px;
-    background-image: url('chrome-extension://__MSG_@@extension_id__/images/pen.png');
+    background-image: url('chrome-extension://__MSG_@@extension_id__/images/q.svg');
     background-size: contain;
     opacity: 0.2;
     z-index: 1000;
@@ -13,4 +13,39 @@
 
 .nzz_extension_edit:hover {
     opacity: 1;
+}
+
+.nzz_extension_customcode_overlay
+{
+    width: 280px;
+    text-align: right;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -275px;
+    background-color: #2b3440;
+    color: #d7dde4;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    z-index: 99999;
+    overflow: hidden;
+    transition: right 0.3s ease-in-out;
+}
+
+.nzz_extension_customcode_overlay:hover
+{
+    right: 0;
+}
+
+.nzz_extension_customcode_overlay ul
+{
+    padding: 0;
+    list-style-type: none;
+    padding: 5px 5px 5px 10px;
+}
+
+.nzz_extension_customcode_overlay a, .nzz_extension_customcode_overlay a:visited, .nzz_extension_customcode_overlay a:hover
+{
+    color: #d7dde4;
+    text-decoration: none;
 }

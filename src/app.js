@@ -60,6 +60,9 @@ const qItems = {
   "pollResult": {
     "selector": ".q-poll_result-container",
     "url": "https://qv2.st.nzz.ch/editor/poll_result/%id%"
+  },
+  "customCode": {
+    "url": "https://qv2.st.nzz.ch/editor/custom_code/%id%"
   }
 }
 
@@ -81,6 +84,22 @@ const addQ = (props) => {
   })
 }
 
+const addCustomCodeWidget = () => {
+  let items = "";
+  const containers = document.querySelectorAll('.q-custom_code-container');
+  containers.forEach((el) => {
+    const id = el.getAttribute("data-q-item-id");
+    url = qItems['customCode'].url.replace("%id%", id);
+    items += `<li><a href="${url}" target="_blank" alt="Bearbeten in Q">${id}</a></li>`;
+  });
+
+  // Insert overlay
+  if(containers.length > 0)
+  {
+    document.body.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_customcode_overlay"><ul>${items}</ul></div>`);
+  }
+}
+
 const init = () => {
   // Add DataWrapper
   addDataWrapper();
@@ -98,6 +117,8 @@ const init = () => {
   addQ(qItems['locatorMap']);
   addQ(qItems['partySlogan']);
   addQ(qItems['pollResult']);
+
+  addCustomCodeWidget();
 }
 
 /**
@@ -110,6 +131,7 @@ setTimeout(() => {
 
     // When location change, remove everything and add it again
     document.querySelectorAll('.nzz_extension_edit').forEach((el) => el.remove());
+    document.querySelectorAll('.nzz_extension_customcode_overlay').forEach((el) => el.remove());
 
     setTimeout(init, 500);
   })
