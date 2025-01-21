@@ -80,7 +80,7 @@ const addQ = (props) => {
     url = props.url.replace("%id%", chart.getAttribute("data-q-item-id"));
 
     // Add HTML Code
-    parent.insertAdjacentHTML('afterbegin', `<a href="${url}" target="_blank" class="nzz_extension_edit" alt="Bearbeten in Q"></a>`);
+    parent.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_edit"><a href="${url}" target="_blank" class="icon" alt="Bearbeten in Q"></a></div>`);
   })
 }
 
