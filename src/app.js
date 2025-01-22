@@ -87,10 +87,14 @@ const addQ = (props) => {
 const addCustomCodeWidget = () => {
   let items = "";
   const containers = document.querySelectorAll('.q-custom_code-container');
+  const uniqueIds = new Set();
   containers.forEach((el) => {
     const id = el.getAttribute("data-q-item-id");
-    url = qItems['customCode'].url.replace("%id%", id);
-    items += `<li><a href="${url}" target="_blank" alt="Bearbeten in Q">${id}</a></li>`;
+    if (!uniqueIds.has(id)) {
+      uniqueIds.add(id);
+      url = qItems['customCode'].url.replace("%id%", id);
+      items += `<li><a href="${url}" target="_blank" alt="Bearbeten in Q">${id}</a></li>`;
+    }
   });
 
   // Insert overlay
@@ -98,6 +102,24 @@ const addCustomCodeWidget = () => {
   {
     document.body.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_customcode_overlay"><ul>${items}</ul></div>`);
   }
+
+  // Add onHover Hook
+  document.querySelectorAll('.nzz_extension_customcode_overlay a').forEach((link) => {
+
+    // Add highlight
+    link.addEventListener('mouseover', () => {
+      document.querySelectorAll(`.q-custom_code-container[data-q-item-id="${link.textContent}"]`).forEach((container) => {
+        container.classList.add("nzz_extension_customcode_highlight")
+      });
+    });
+
+    // Remove highlight
+    link.addEventListener('mouseout', () => {
+      document.querySelectorAll(`.q-custom_code-container[data-q-item-id="${link.textContent}"]`).forEach((container) => {
+        container.classList.remove("nzz_extension_customcode_highlight")
+      });
+    });    
+  });
 }
 
 const init = () => {
