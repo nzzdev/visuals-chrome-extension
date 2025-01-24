@@ -29,9 +29,10 @@
     width: 280px;
     text-align: right;
     position: fixed;
+    cursor: pointer;
     top: 50%;
     transform: translateY(-50%);
-    right: -275px;
+    right: -273px;
     background-color: #2b3440;
     color: #d7dde4;
     border-top-left-radius: 5px;
@@ -61,5 +62,5 @@
 
 .nzz_extension_customcode_highlight
 {
-    border: 3px solid #df7c18;
+    background-color: #df7c1838 !important;
 }

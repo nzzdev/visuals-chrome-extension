@@ -12,7 +12,7 @@ const addDataWrapper = () => {
     parent.style.position = 'relative';
 
     // Inject HTML
-    parent.insertAdjacentHTML('afterbegin', `<a href="https://app.datawrapper.de/chart/${extractDataWrapperId(iframe.src)}/visualize" target="_blank" class="nzz_extension_edit" alt="Bearbeiten in DataWrapper"></a>`);
+    parent.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_edit"><a href="https://app.datawrapper.de/chart/${extractDataWrapperId(iframe.src)}/visualize" target="_blank" class="icon" alt="Bearbeiten in DataWrapper"></a></div>`);
   })
 }
 
@@ -60,6 +60,10 @@ const qItems = {
   "pollResult": {
     "selector": ".q-poll_result-container",
     "url": "https://qv2.st.nzz.ch/editor/poll_result/%id%"
+  },
+  "coalitionCalculation": {
+    "selector": ".q-coalition_calculation-container",
+    "url": "https://qv2.st.nzz.ch/editor/coalition_calculation/%id%"
   },
   "customCode": {
     "url": "https://qv2.st.nzz.ch/editor/custom_code/%id%"
@@ -139,6 +143,7 @@ const init = () => {
   addQ(qItems['locatorMap']);
   addQ(qItems['partySlogan']);
   addQ(qItems['pollResult']);
+  addQ(qItems['coalitionCalculation']);
 
   addCustomCodeWidget();
 }

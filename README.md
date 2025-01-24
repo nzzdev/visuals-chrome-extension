@@ -12,6 +12,7 @@ Diese Chrome-Erweiterung fügt Q- und DataWrapper-Grafiken ein Editiersymbol hin
 Nach jeder Änderung am Code muss die Erweiterung über das Pfeilsymbol neu geladen werden
 
 ## Versionsverlauf
+* 1.4: Fix DataWrapper-Editiersymbol, Koalitionsrechner hinzugefügt
 * 1.2 Verbesserung bei `Infografic`: Hintergrundfarbe bei Editiersymbol hinterlegt
 * 1.1: CustomCode-Elemente werden in einer Sidebar aufgelistet
 * 1.0: Erste Version
