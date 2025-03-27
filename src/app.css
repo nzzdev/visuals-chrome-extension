@@ -9,6 +9,7 @@
     border-radius: 15px;
     width: 20px;
     height: 20px;
+    padding: 0 !important;
 }
 
 .nzz_extension_edit .icon{
