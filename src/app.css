@@ -19,6 +19,7 @@
     height: 100%;
     opacity: 0.2;
     transition: opacity 0.2s ease-in-out;
+    display: inline-block;
 }
 
 .nzz_extension_edit .icon:hover {

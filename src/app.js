@@ -75,7 +75,7 @@ const addQ = (props) => {
 
   document.querySelectorAll(props.selector).forEach((chart) => {
 
-    const parent = chart.parentNode.parentNode;
+    const parent = chart//.parentNode//.parentNode;
 
     // Set Position relative to parent
     parent.style.position = 'relative';
@@ -166,5 +166,5 @@ setTimeout(() => {
   // Init Exteion
   init();
 
-}, 500)
+}, 4000)
 
