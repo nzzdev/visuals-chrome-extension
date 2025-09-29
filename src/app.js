@@ -151,19 +151,20 @@ const init = () => {
 /**
  * Main function when Extension is loaded
  */
+
+window.navigation.addEventListener("navigate", () => {
+
+  // When location change, remove everything and add it again
+  document.querySelectorAll('.nzz_extension_edit').forEach((el) => el.remove());
+  document.querySelectorAll('.nzz_extension_customcode_overlay').forEach((el) => el.remove());
+
+  setTimeout(init, 3000);
+  
+})
+
 setTimeout(() => {
 
   // Register event when site changes
-  window.navigation.addEventListener("navigate", () => {
-
-    // When location change, remove everything and add it again
-    document.querySelectorAll('.nzz_extension_edit').forEach((el) => el.remove());
-    document.querySelectorAll('.nzz_extension_customcode_overlay').forEach((el) => el.remove());
-
-    setTimeout(init, 500);
-  })
-
-  // Init Exteion
   init();
 
 }, 4000)
