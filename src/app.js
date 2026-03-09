@@ -157,15 +157,27 @@ window.navigation.addEventListener("navigate", () => {
   // When location change, remove everything and add it again
   document.querySelectorAll('.nzz_extension_edit').forEach((el) => el.remove());
   document.querySelectorAll('.nzz_extension_customcode_overlay').forEach((el) => el.remove());
-
-  setTimeout(init, 3000);
   
 })
 
-setTimeout(() => {
+const observePagedone = () => {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "class") {
+        if (document.body.classList.contains("pagedone")) {
+          // console.log("PAGE DONE!")
+          // Page Done. Now wait 1 seconds for Q to load
+          setTimeout(init, 1000);
 
-  // Register event when site changes
-  init();
+        }
+      }
+    });
+  });
 
-}, 4000)
+  observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });  
+}
 
+observePagedone()
