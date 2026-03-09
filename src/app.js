@@ -166,8 +166,8 @@ const observePagedone = () => {
       if (mutation.attributeName === "class") {
         if (document.body.classList.contains("pagedone")) {
           // console.log("PAGE DONE!")
-          // Page Done. Now wait 1 seconds for Q to load
-          setTimeout(init, 1000);
+          // Page Done. Now wait 2 seconds for Q to load
+          setTimeout(init, 2000);
 
         }
       }
