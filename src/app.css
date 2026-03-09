@@ -12,7 +12,7 @@
     padding: 0 !important;
 }
 
-.nzz_extension_edit .icon{
+.nzz_extension_edit .icon_q {
     background-image: url('chrome-extension://__MSG_@@extension_id__/images/q.svg');
     background-size: contain;
     width: 100%;
@@ -22,7 +22,17 @@
     display: inline-block;
 }
 
-.nzz_extension_edit .icon:hover {
+.nzz_extension_edit .icon_dw {
+    background-image: url('chrome-extension://__MSG_@@extension_id__/images/dw.png');
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    transition: opacity 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.nzz_extension_edit .icon_q:hover, .nzz_extension_edit .icon_dw:hover {
     opacity: 1;
 }
 

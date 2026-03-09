@@ -12,7 +12,7 @@ const addDataWrapper = () => {
     parent.style.position = 'relative';
 
     // Inject HTML
-    parent.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_edit"><a href="https://app.datawrapper.de/chart/${extractDataWrapperId(iframe.src)}/visualize" target="_blank" class="icon" alt="Bearbeiten in DataWrapper"></a></div>`);
+    parent.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_edit"><a href="https://app.datawrapper.de/chart/${extractDataWrapperId(iframe.src)}/visualize" target="_blank" class="icon_dw" alt="Bearbeiten in DataWrapper"></a></div>`);
   })
 }
 
@@ -65,6 +65,14 @@ const qItems = {
     "selector": ".q-coalition_calculation-container",
     "url": "https://qv2.st.nzz.ch/editor/coalition_calculation/%id%"
   },
+  "grid": {
+    "selector": ".q-grid-container",
+    "url": "https://qv2.st.nzz.ch/editor/grid/%id%"
+  },
+  "scrollGraphic": {
+    "selector": ".q-scroll_graphic-container",
+    "url": "https://qv2.st.nzz.ch/editor/scroll_graphic/%id%"
+  },
   "customCode": {
     "url": "https://qv2.st.nzz.ch/editor/custom_code/%id%"
   }
@@ -84,7 +92,7 @@ const addQ = (props) => {
     url = props.url.replace("%id%", chart.getAttribute("data-q-item-id"));
 
     // Add HTML Code
-    parent.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_edit"><a href="${url}" target="_blank" class="icon" alt="Bearbeten in Q"></a></div>`);
+    parent.insertAdjacentHTML('afterbegin', `<div class="nzz_extension_edit"><a href="${url}" target="_blank" class="icon_q" alt="Bearbeten in Q"></a></div>`);
   })
 }
 
@@ -144,6 +152,8 @@ const init = () => {
   addQ(qItems['partySlogan']);
   addQ(qItems['pollResult']);
   addQ(qItems['coalitionCalculation']);
+  addQ(qItems['grid']);
+  addQ(qItems['scrollGraphic']);
 
   addCustomCodeWidget();
 }
